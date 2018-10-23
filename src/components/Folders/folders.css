@@ -1,0 +1,50 @@
+.folders {
+  margin-bottom: 21px;
+}
+
+.folders--heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 23px 22px 10px 32px;
+  color: #909191;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.folders--heading i {
+  font-size: 16px;
+}
+
+.folders--add {
+  cursor: pointer;
+}
+
+.folders--item {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 23px 8px 32px;
+  color: #909191;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 500;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.folders--item .icon-twotone svg  {
+  margin-right: 22px;
+  height: 18px;
+}
+
+.folders--item-active {
+  color: #000000;
+}
+
+.folders--item:hover {
+  color: #000000;
+}

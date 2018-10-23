@@ -1,0 +1,38 @@
+.search {
+  position: relative;
+  margin-left: 117px;
+}
+
+.search--icon {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: #909191;
+}
+
+.search--drop_down {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: #909191;
+  cursor: pointer;
+}
+
+.search > input {
+  box-sizing: border-box;
+  width: 500px;
+  background-color: #f7f8f9;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 12px 45px;
+  color: #909191;
+  font-weight: 400;
+  outline: none;
+  color: #000;
+}
+
+.search > input:focus {
+  background-color: #ffffff;
+  border-color: #e4e8eb;
+}

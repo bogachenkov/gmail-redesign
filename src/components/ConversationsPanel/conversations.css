@@ -1,0 +1,149 @@
+.conversations {
+
+}
+
+.conversations--bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e4e8eb;
+  color: #909191;
+  padding: 16px 18px 14px;
+}
+
+.conversations--checkAll {
+  cursor: pointer;
+}
+
+.conversations--more {
+  cursor: pointer;
+}
+
+.conversations--item {
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 16px 20px 13px;
+  border-left: 3px solid transparent;
+}
+
+.conversations--item:hover .conversations--datetime {
+  opacity: 0;
+}
+.conversations--item:hover .conversations--actions-float {
+  display: flex;
+}
+.conversations--item:hover .conversations--starred {
+  display: block;
+}
+
+.conversations--item.selected {
+  background-color: #f7f8f9;
+  border-left: 3px solid #db4437;
+}
+
+.conversations--item.selected .conversations--last-message {
+  color: #909191 !important;
+}
+
+.conversations--avatar {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 49%;
+  background-color: #b3b3b3;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-right: 11px;
+}
+.conversations--avatar.no-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1;
+}
+.conversations--avatar.no-avatar.blue {
+  background-color: rgba(66, 133, 244, 0.2);
+  border: 1px solid #4285f4;
+  color: #4285f4;
+}
+.conversations--avatar.no-avatar.yellow {
+  background-color: rgba(244, 180, 0, 0.2);
+  border: 1px solid #f4b400;
+  color: #f4b400;
+}
+.conversations--avatar.no-avatar.green {
+  background-color: rgba(15, 157, 88, 0.2);
+  border: 1px solid #0f9d58;
+  color: #0f9d58;
+}
+
+
+.conversations--data {
+  overflow: hidden;
+}
+
+.conversations--item.new .conversations--name {
+  color: #212223;
+}
+
+.conversations--name {
+  margin: 0;
+  color: #909191;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.conversations--item.new .conversations--last-message {
+  color: #212223;
+}
+
+.conversations--last-message {
+  color: #909191;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+}
+
+.conversations--datetime {
+  margin: 0;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #909191;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.conversations--actions-float {
+  position: absolute;
+  display: none;
+  align-items: center;
+  right: 16px;
+  top: 15px;
+}
+
+.conversations--actions-float .icon-twotone svg {
+  margin-left: 10px;
+  transform: scale(.8);
+}
+
+.conversations--starred {
+  display: none;
+  position: absolute;
+  bottom: 14px;
+  right: 16px;
+  transform: scale(.8);
+}

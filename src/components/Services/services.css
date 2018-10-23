@@ -1,0 +1,24 @@
+.services {
+  padding-top: 20px;
+}
+
+.services--item {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.services--delimiter {
+  width: 22px;
+  height: 1px;
+  margin: 0 auto 33px;
+  background-color: #e4e8eb;
+}
+
+.services--add {
+  cursor: pointer;
+  text-align: center;
+}

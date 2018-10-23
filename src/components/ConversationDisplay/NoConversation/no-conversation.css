@@ -1,0 +1,46 @@
+.no-conversation {
+  position: relative;
+  text-align: center;
+  padding-top: 60px;
+  height: 100%;
+}
+
+.no-conversation--title {
+  color: #212223;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.no-conversation--chart {
+  margin: 66px 0 40px;
+}
+
+.no-conversation--message {
+  color: #808080;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.no-conversation--link {
+  cursor: pointer;
+  color: #4285f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.no-conversation--last-visit {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 31px;
+}
+
+.no-conversation--last-visit p {
+  font-size: 12px;
+  color: #212223;
+  margin: 0 0 .5em 0;
+}

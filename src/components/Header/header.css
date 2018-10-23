@@ -1,0 +1,41 @@
+.header {
+  height: 64px;
+  padding: 0 30px;
+  border-bottom: 1px solid #e4e8eb;
+  display: flex;
+  align-items: center;
+}
+
+.header--bar {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.header--user {
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 49%;
+  background: url("https://randomuser.me/api/portraits/men/46.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.header--notification {
+  margin: 0 25px;
+  cursor: pointer;
+  transform: scale(.9);
+}
+
+.header--notification:hover svg {
+  fill: #000000;
+}
+
+.header--apps {
+  cursor: pointer;
+}
+
+.header--apps:hover .icon-twotone svg {
+  fill: #000000;
+}
