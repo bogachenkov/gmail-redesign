@@ -1,5 +1,14 @@
 export default [
   {
+    id: 0,
+    avatar: 'https://randomuser.me/api/portraits/men/46.jpg',
+    name: 'John Doe',
+    email: 'fake.johndoe@gmail.com',
+    phone: '+7 123 456 7890',
+    location: 'Moscow, Russia',
+    company: 'Doe Ent.'
+  },
+  {
     id: 1,
     avatar: 'https://randomuser.me/api/portraits/men/79.jpg',
     name: 'Ivan Ivanov',

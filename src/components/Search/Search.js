@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 import './search.css';
-
-import searchIcon from './svg/twotone-search-24px.svg';
-import caretDown from './svg/twotone-arrow_drop_down-24px.svg';
 
 class Search extends Component {
 
@@ -24,7 +21,7 @@ class Search extends Component {
     return (
       <form className="search">
         <span className="search--icon">
-          <ReactSVG className="icon-twotone" src={searchIcon} />
+          <TwoToneIcon icon="search" size={18} />
         </span>
         <input
           type="text"
@@ -32,7 +29,7 @@ class Search extends Component {
           value={this.state.search}
           onChange={this.changeHandler} />
         <span className="search--drop_down">
-          <ReactSVG className="icon-twotone" src={caretDown} />
+          <TwoToneIcon icon="arrow_drop_down" size={18} />
         </span>
       </form>
     );

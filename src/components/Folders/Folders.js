@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 import FoldersItem from './FoldersItem';
 
 import './folders.css';
-
-import addIcon from './svg/twotone-add-24px.svg';
 
 class Folders extends Component {
 
@@ -22,7 +20,7 @@ class Folders extends Component {
       <div className="folders">
         <h3 className="folders--heading">
           Папки
-          <ReactSVG className="icon-twotone hover folders--add" src={addIcon} />
+          <TwoToneIcon className="folders--add" icon="add" hoverable size={12} />
         </h3>
         {
           this.state.folders.map(folder => (

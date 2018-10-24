@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
-
+import {connect} from 'react-redux';
 import './conversations.css';
-
-import noCheckIcon from './svg/twotone-check_box_outline_blank-24px.svg';
-import checkedIcon from './svg/twotone-check_box-24px.svg';
-import moreIcon from './svg/twotone-more_vert-24px.svg';
+import ConversationActions from './ConversationActions';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 class ConversationsBar extends Component {
 
@@ -19,21 +16,34 @@ class ConversationsBar extends Component {
     });
   }
 
+  isEmpty = (obj) => {
+    return !obj || Object.keys(obj).length === 0;
+  }
+
   render() {
+    const {openedConversation} = this.props;
+    console.log(openedConversation);
     const {checkAll} = this.state;
     return (
       <div className="conversations--bar">
         <div className="conversations--checkAll" onClick={this.checkAllHandler}>
           {
             checkAll ?
-            <ReactSVG className="icon-twotone hover" src={checkedIcon} /> :
-            <ReactSVG className="icon-twotone hover" src={noCheckIcon} />
+            <TwoToneIcon title="Отменить выбор" hoverable size={16} icon="check_box" /> :
+            <TwoToneIcon title="Выбрать" hoverable size={16} icon="check_box_outline_blank"/>
           }
         </div>
-        <ReactSVG className="icon-twotone conversations--more hover" src={moreIcon} />
+        <div className="conversations--bar-actions">
+          {!this.isEmpty(openedConversation) && <ConversationActions /> }
+          <TwoToneIcon hoverable size={16} className="conversations--more" icon="more_vert" />
+        </div>
       </div>
     );
   }
 }
 
-export default ConversationsBar;
+const mapStateToProps = state => ({
+  openedConversation: state.conversations.openedConversation
+});
+
+export default connect(mapStateToProps)(ConversationsBar);

@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactSVG from 'react-svg';
-
-import notificationIcon from './svg/twotone-notifications-24px.svg';
-import appsIcon from './svg/twotone-apps-24px.svg';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 const HeaderBar = () => (
   <div className="header--bar">
     <div className="header--apps" title="Приложения Google">
-      <ReactSVG className="icon-twotone" src={appsIcon} title="Приложения Google" />
+      <TwoToneIcon icon='apps' hoverable size={20} />
     </div>
-    <ReactSVG className="header--notification icon-twotone" src={notificationIcon} title="Уведомления" />
+    <div className="header--notification">
+      <TwoToneIcon icon='notification' size={16} hoverable title="Уведомления" />
+    </div>
     <div className="header--user" title="Аккаунт Google"></div>
   </div>
 );

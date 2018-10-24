@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux';
 import './conversation.css';
 
-import NoConversation from './NoConversation/NoConversation';
+import Dialog from '../Dialog/Dialog';
+import NoConversation from '../NoConversation/NoConversation';
 
 class ConversationDisplay extends Component {
+
+  isEmpty = (obj) => {
+    return !obj || Object.keys(obj).length === 0;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('dispplay')
+  }
+
   render() {
-    const {selectedId} = this.props;
+    const {conversation, loading} = this.props;
+    if (loading) return <div className="conversation"></div>
     return (
       <div className="conversation">
-        {selectedId && <h1>Yep!</h1>}
-        {!selectedId && <NoConversation />}
+        {!this.isEmpty(conversation) && <Dialog conversation={conversation} />}
+        {this.isEmpty(conversation) && <NoConversation />}
       </div>
     );
   }
 }
 
-export default ConversationDisplay;
+const mapStateToProps = state => ({
+  conversation: state.conversations.openedConversation,
+  loading: state.conversations.loading
+});
+export default connect(mapStateToProps)(ConversationDisplay);

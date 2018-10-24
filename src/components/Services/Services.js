@@ -1,13 +1,11 @@
 import React from 'react';
-import ReactSVG from 'react-svg';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 import './services.css';
 
 import calendarIcon from './png/calendar_2x.png';
 import keepIcon from './png/keep_2x.png';
 import tasksIcon from './png/tasks2_2x.png';
-
-import addIcon from './svg/twotone-add-24px.svg';
 
 const Services = () => (
   <div className="services">
@@ -27,7 +25,7 @@ const Services = () => (
       style={{backgroundImage: `url("${tasksIcon}")`}}></div>
     <p className="services--delimiter"></p>
     <div className="services--add">
-      <ReactSVG className="icon-twotone hover" src={addIcon} />
+      <TwoToneIcon icon="add" size={16} hoverable />
     </div>
   </div>
 );

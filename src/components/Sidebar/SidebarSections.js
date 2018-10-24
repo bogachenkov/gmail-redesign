@@ -1,13 +1,5 @@
 import React, { Component } from 'react';
 
-import inboxIcon from './svg/twotone-inbox-24px.svg';
-import starredIcon from './svg/twotone-star-24px.svg';
-import snoozedIcon from './svg/twotone-access_time-24px.svg';
-import sentIcon from './svg/twotone-send-24px.svg';
-import draftIcon from './svg/twotone-insert_drive_file-24px.svg';
-import spamIcon from './svg/twotone-report-24px.svg';
-import trashIcon from './svg/twotone-delete-24px.svg';
-
 import SidebarItem from './SidebarItem';
 
 class SidebarSections extends Component {
@@ -16,37 +8,37 @@ class SidebarSections extends Component {
     items: [
       {
         label: 'Входящие',
-        icon: inboxIcon,
+        icon: 'inbox',
         href: 'inbox'
       },
       {
         label: 'Отмеченные',
-        icon: starredIcon,
+        icon: 'star',
         href: 'starred'
       },
       {
         label: 'Отложенные',
-        icon: snoozedIcon,
+        icon: 'access_time',
         href: 'snoozed'
       },
       {
         label: 'Отправленные',
-        icon: sentIcon,
+        icon: 'send',
         href: 'sent'
       },
       {
         label: 'Черновики',
-        icon: draftIcon,
+        icon: 'insert_drive_file',
         href: 'draft'
       },
       {
         label: 'Спам',
-        icon: spamIcon,
+        icon: 'report',
         href: 'spam'
       },
       {
         label: 'Корзина',
-        icon: trashIcon,
+        icon: 'delete',
         href: 'trash'
       }
     ]

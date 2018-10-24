@@ -23,9 +23,8 @@
 }
 
 .header--notification {
-  margin: 0 25px;
+  margin: 5px 25px 0px;
   cursor: pointer;
-  transform: scale(.9);
 }
 
 .header--notification:hover svg {
@@ -34,8 +33,5 @@
 
 .header--apps {
   cursor: pointer;
-}
-
-.header--apps:hover .icon-twotone svg {
-  fill: #000000;
+  margin-top: 5px;
 }

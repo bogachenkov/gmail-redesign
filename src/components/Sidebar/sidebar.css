@@ -46,9 +46,8 @@
   border-left: 3px solid transparent;
 }
 
-.sidebar--item .icon-twotone svg {
+.sidebar--item .twotone-icon svg {
   margin-right: 22px;
-  height: 18px;
 }
 
 .sidebar--item:not(.sidebar--item-active):hover {
@@ -62,7 +61,7 @@
   background-color: rgba(219,68,55, .1);
 }
 
-.sidebar--item-active .icon-twotone svg {
+.sidebar--item-active .twotone-icon svg {
   fill: #db4437;
 }
 

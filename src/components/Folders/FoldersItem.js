@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactSVG from 'react-svg';
-
-import folderIcon from './svg/twotone-folder-24px.svg';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 const FoldersItem = ({folderName}) => {
     let color = '';
@@ -10,9 +8,10 @@ const FoldersItem = ({folderName}) => {
     if (folderName === 'Путешествия') color = ' yellow';
     return (
       <div className="folders--item">
-        <ReactSVG
-          className={"icon-twotone" + color}
-          src={folderIcon} />
+        <TwoToneIcon
+          className={color}
+          size={16}
+          icon="folder" />
         {folderName}
       </div>
     )

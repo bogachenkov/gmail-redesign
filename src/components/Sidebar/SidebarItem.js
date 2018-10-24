@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ReactSVG from 'react-svg';
+import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 const SidebarItem = ({href, label, icon}) => (
   <NavLink
@@ -9,7 +9,7 @@ const SidebarItem = ({href, label, icon}) => (
     className="sidebar--item"
     activeClassName="sidebar--item-active"
     to={`/${href}`}>
-    <ReactSVG className="icon-twotone" src={icon} />
+    <TwoToneIcon icon={icon} size={18} />
     {label}
   </NavLink>
 );

@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
-import conversationsData from '../../data/conversations';
-import usersData from '../../data/users';
+import {
+  selectConversation
+} from '../../store/actions';
 
 import ConversationsItem from './ConversationsItem';
 
 class ConversationsList extends Component {
   render() {
+    const {users, conversations, selectConversation, openedConversation} = this.props;
     return (
       <div>
         {
-          conversationsData.map((conversation) => (
+          conversations.map((conversation) => (
             <ConversationsItem
-              user={usersData.find(el => el.id === conversation.userId)}
+              selected={openedConversation && openedConversation.id === conversation.id}
+              user={users.find(el => el.id === conversation.userId)}
+              onSelect={() => selectConversation(conversation)}
               conversation={conversation}
               key={conversation.id} />
           ))
@@ -22,4 +27,12 @@ class ConversationsList extends Component {
   }
 }
 
-export default ConversationsList;
+const mapStateToProps = state => ({
+  users: state.users.users,
+  conversations: state.conversations.conversations,
+  openedConversation: state.conversations.openedConversation
+});
+const mapDispatchToProps = dispatch => ({
+  selectConversation: conversation => dispatch(selectConversation(conversation))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ConversationsList);
