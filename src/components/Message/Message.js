@@ -10,7 +10,7 @@ import MessageFooter from './MessageFooter';
 
 class Message extends Component {
   render() {
-    const {message, users, isOpen, onSelectMsg, destUserId} = this.props;
+    const {message, users, isOpen, onSelectMsg, destUserId, openReply, replyIsOpen} = this.props;
     const user = users.find(user => user.id === message.user);
     return (
       <article className="message">
@@ -28,8 +28,8 @@ class Message extends Component {
             isOpen={isOpen} />
         </div>
         {
-          isOpen &&
-          <MessageFooter />
+          isOpen && !replyIsOpen &&
+          <MessageFooter openReply={openReply} />
         }
       </article>
     );

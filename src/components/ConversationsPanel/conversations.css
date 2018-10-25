@@ -53,6 +53,9 @@
   background-color: #f7f8f9;
   border-left: 3px solid #db4437;
 }
+.conversations--item.selected .conversations--name {
+  color: #212223;
+}
 .conversations--item.selected .conversations--starred {
   display: block;
 }

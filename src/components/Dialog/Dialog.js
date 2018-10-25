@@ -5,11 +5,13 @@ import './dialog.css';
 
 import DialogBar from './DialogBar';
 import Message from '../Message/Message';
+import Reply from '../Reply/Reply';
 
 class Dialog extends Component {
 
   state = {
-    selectedMsg: null
+    selectedMsg: null,
+    replyIsOpen: true
   }
 
   componentDidMount() {
@@ -25,17 +27,25 @@ class Dialog extends Component {
     });
   }
 
+  openReply = e => {
+    this.setState({
+      replyIsOpen: true
+    }, () => {
+      this.scroll.scrollToBottom()
+    });
+  }
+
   render() {
     const {conversation} = this.props;
-    const {selectedMsg} = this.state;
+    const {selectedMsg, replyIsOpen} = this.state;
     return (
       <section className="dialog">
         <header className="dialog--header">
           <h3 className="dialog--title">{conversation.title}</h3>
           <DialogBar />
         </header>
-
           <Scrollbars
+            ref={el => this.scroll = el}
             autoHide
             autoHideTimeout={1000}
             autoHideDuration={200}
@@ -44,6 +54,8 @@ class Dialog extends Component {
             {
               conversation.messages.map((message, i, arr) =>
                 <Message
+                  openReply={this.openReply}
+                  replyIsOpen={replyIsOpen}
                   destUserId={conversation.userId}
                   onSelectMsg={() => this.selectMessage(message.id)}
                   message={message}
@@ -51,9 +63,9 @@ class Dialog extends Component {
                   key={message.id} />
               )
             }
+            {replyIsOpen && <Reply />}
             </div>
           </Scrollbars>
-
       </section>
     );
   }
