@@ -3,6 +3,7 @@
   margin-bottom: 10px;
   border: 1px solid #e4e8eb;
   border-radius: 3px;
+  position: relative;
 }
 
 .message--content {
@@ -19,6 +20,9 @@
   background-size: cover;
   background-position: center;
   margin-right: 11px;
+}
+.message--avatar:hover .contact-info {
+  display: block;
 }
 
 .message--avatar.no-avatar {
@@ -97,8 +101,7 @@
 }
 
 .message--bar .twotone-icon {
-  margin-top: -3px;
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 .message--date {

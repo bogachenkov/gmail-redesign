@@ -11,6 +11,7 @@ const SidebarItem = ({href, label, icon}) => (
     to={`/${href}`}>
     <TwoToneIcon icon={icon} size={18} />
     {label}
+    {href === 'inbox' && <span className="sidebar--unreaded-counter">3</span>}
   </NavLink>
 );
 

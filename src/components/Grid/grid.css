@@ -1,4 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: 256px 360px minmax(500px,1fr) 50px;
+  overflow-y: hidden;
+  grid-template-columns: minmax(216px, 256px) minmax(320px, 360px) minmax(500px,1fr) 50px;
+  height: calc(100vh - 64px);
 }

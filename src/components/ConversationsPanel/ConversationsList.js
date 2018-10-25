@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import {
   selectConversation
@@ -11,7 +12,10 @@ class ConversationsList extends Component {
   render() {
     const {users, conversations, selectConversation, openedConversation} = this.props;
     return (
-      <div>
+      <Scrollbars
+        renderTrackVertical={props => <div {...props} style={{display: 'none'}} className="track-horizontal"/>}
+        style={{ height: 'calc(100vh - 64px - 60px)' }}>
+        <div>
         {
           conversations.map((conversation) => (
             <ConversationsItem
@@ -23,6 +27,7 @@ class ConversationsList extends Component {
           ))
         }
       </div>
+      </Scrollbars>
     );
   }
 }

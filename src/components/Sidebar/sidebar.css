@@ -49,7 +49,12 @@
 .sidebar--item .twotone-icon svg {
   margin-right: 22px;
 }
+.sidebar--unreaded-counter {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 400;
 
+}
 .sidebar--item:not(.sidebar--item-active):hover {
   background-color: rgba(144, 145, 145, .1);
   border-color: rgb(144,145,145);

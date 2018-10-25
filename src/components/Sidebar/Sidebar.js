@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 import './sidebar.css';
 
@@ -11,14 +12,18 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <aside className="sidebar">
-        <SidebarComposeBtn />
-        <SidebarSections />
-        <p className="sidebar--delimiter"></p>
-        <Folders />
-        <p className="sidebar--delimiter"></p>
-        <SidebarOptions />
-      </aside>
+      <Scrollbars
+        renderTrackVertical={props => <div {...props} style={{display: 'none'}} className="track-horizontal"/>}
+        style={{ height: 'calc(100vh - 64px)' }}>
+        <aside className="sidebar">
+          <SidebarComposeBtn />
+          <SidebarSections />
+          <p className="sidebar--delimiter"></p>
+          <Folders />
+          <p className="sidebar--delimiter"></p>
+          <SidebarOptions />
+        </aside>
+      </Scrollbars>
     );
   }
 }
