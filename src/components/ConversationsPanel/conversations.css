@@ -1,7 +1,3 @@
-.conversations {
-
-}
-
 .conversations--bar {
   height: 60px;
   display: flex;
@@ -32,38 +28,50 @@
 .conversations--item {
   text-decoration: none;
   position: relative;
-  cursor: pointer;
   display: flex;
   align-items: flex-start;
   padding: 20px 16px 20px 13px;
   border-left: 3px solid transparent;
 }
 
-.conversations--item:hover .conversations--datetime {
+.conversations--item:not(.selected):hover .conversations--datetime {
   opacity: 0;
 }
-.conversations--item:hover .conversations--actions {
+.conversations--item:not(.selected):hover .conversations--actions {
   display: flex;
 }
-.conversations--item:hover .conversations--starred {
+.conversations--item:not(.selected):hover .conversations--starred {
   display: block;
 }
 
-.conversations--item.selected {
+.conversations--item.selected,
+.conversations--item.active {
   background-color: #f7f8f9;
   border-left: 3px solid #db4437;
 }
-.conversations--item.selected .conversations--name {
+.conversations--item.active .conversations--name {
   color: #212223;
 }
-.conversations--item.selected .conversations--starred {
+.conversations--item.active .conversations--starred {
   display: block;
+}
+.conversations--item.active .conversations--last-message {
+  color: #909191 !important;
+}
+
+
+.conversations--item.selected {
+  color: #909191;
+}
+.conversations--item.selected .conversations--name {
+  color: #909191 !important;
 }
 .conversations--item.selected .conversations--last-message {
   color: #909191 !important;
+  opacity: 0.8;
 }
-.conversations--item.selected:hover .conversations--datetime {
-  opacity: .8;
+.conversations--item.selected .conversations--avatar {
+  background-color: #db4437;
 }
 
 .conversations--avatar {
@@ -76,6 +84,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin-right: 11px;
+  cursor: pointer;
 }
 .conversations--avatar.no-avatar {
   display: flex;
@@ -101,10 +110,19 @@
   border: 1px solid #0f9d58;
   color: #0f9d58;
 }
-
+.conversations--avatar.conversations--avatar-selected {
+  background-color: #db4437;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.conversations--avatar.conversations--avatar-selected svg {
+  fill: #ffffff;
+}
 
 .conversations--data {
   overflow: hidden;
+  cursor: pointer;
 }
 
 .conversations--item.new .conversations--name {
@@ -137,6 +155,7 @@
 
 .conversations--datetime {
   margin: 0;
+  margin-left: auto;
   font-size: 12px;
   white-space: nowrap;
   color: #909191;
@@ -149,7 +168,7 @@
   position: absolute;
   display: none;
   right: 16px;
-  top: 10px;
+  top: 15px;
 }
 .conversations--item .conversations--actions .twotone-icon {
   margin-left: 18px;
@@ -158,6 +177,6 @@
 .conversations--starred {
   display: none;
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   right: 16px;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
-const MessageFooter = ({openReply}) => (
+const MessageFooter = ({toggleReply}) => (
   <footer className="message--footer">
-    <button className="message--action_button" onClick={openReply}>
+    <button className="message--action_button" onClick={toggleReply}>
       <TwoToneIcon icon="reply" size={16} />
       Ответить
     </button>

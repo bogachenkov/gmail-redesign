@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-
 import './no-conversation.css';
 
-import PieChart from './png/Pie_Chart.png';
+import NoSelect from './NoSelect';
+import HasSelect from './HasSelect';
 
 class NoConversation extends Component {
   render() {
+    const {selectedConversations, unselectAll} = this.props;
+    const selectedCount = selectedConversations.length;
+
     return (
-      <div className="no-conversation">
-        <p className="no-conversation--title">
-          Ни одна беседа не выбрана
-        </p>
-        <div className="no-conversation--chart">
-          <img src={PieChart} alt="" />
-        </div>
-        <p className="no-conversation--message">
-          В настоящее время вы используете 1,7 ГБ из 17 ГБ
-        </p>
-        <a className="no-conversation--link">Управление</a>
-        <div className="no-conversation--last-visit">
-          <p>Последняя активность: 5 минут назад</p>
-          <a className="no-conversation--link">Подробнее</a>
-        </div>
-      </div>
+      selectedCount ?
+      <HasSelect
+        selectedCount={selectedCount}
+        unselectAll={unselectAll} />
+      :
+      <NoSelect />
     );
   }
 }

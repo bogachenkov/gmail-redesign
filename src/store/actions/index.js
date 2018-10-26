@@ -1,3 +1,8 @@
 export {
-  selectConversation
+  loadConversation,
+  addReply,
+  selectAll,
+  unselectAll,
+  selectConversation,
+  unselectConversation
 } from './conversations';

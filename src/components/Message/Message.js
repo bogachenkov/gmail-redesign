@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
 
 import './message.css';
 
@@ -10,33 +9,28 @@ import MessageFooter from './MessageFooter';
 
 class Message extends Component {
   render() {
-    const {message, users, isOpen, onSelectMsg, destUserId, openReply, replyIsOpen} = this.props;
-    const user = users.find(user => user.id === message.user);
+    const {message, isMessageSelect, onSelectMsg, toggleReply, replyIsOpen} = this.props;
+    const {from} = message;
+
     return (
       <article className="message">
         <div className="message--content">
-          <MessageAvatar user={user} />
+          <MessageAvatar user={from} />
           <MessageBody
-            destUserId={destUserId}
             onSelectMsg={onSelectMsg}
-            users={users}
-            user={user}
             message={message}
-            isOpen={isOpen} />
+            isMessageSelect={isMessageSelect} />
           <MessageBar
             date={`${message.date}, ${message.time}`}
-            isOpen={isOpen} />
+            isMessageSelect={isMessageSelect} />
         </div>
         {
-          isOpen && !replyIsOpen &&
-          <MessageFooter openReply={openReply} />
+          isMessageSelect && !replyIsOpen &&
+          <MessageFooter toggleReply={toggleReply} />
         }
       </article>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  users: state.users.users
-});
-export default connect(mapStateToProps)(Message);
+export default Message;

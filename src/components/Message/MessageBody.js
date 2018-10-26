@@ -1,14 +1,14 @@
 import React from 'react';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
-const MessageBody = ({message, onSelectMsg, users, user, isOpen, destUserId}) => (
+const MessageBody = ({message, onSelectMsg, isMessageSelect}) => (
   <div className="message--body" onClick={onSelectMsg}>
-    <p className="message--username">{user.name}</p>
-    {isOpen && (
+    <p className="message--username">{message.from.name}</p>
+    {isMessageSelect && (
       <React.Fragment>
         <div className="message--destination">
-          {user.id !== 0 && "кому: мне"}
-          {user.id === 0 && `кому: ${users.find(user => user.id === destUserId).name}`}
+          {message.to.id === 0 && "кому: мне"}
+          {message.to.id !== 0 && `кому: ${message.to.name}`}
           <TwoToneIcon icon="arrow_drop_down" size={14} />
         </div>
         <p className="message--text">
@@ -16,7 +16,7 @@ const MessageBody = ({message, onSelectMsg, users, user, isOpen, destUserId}) =>
         </p>
       </React.Fragment>
     )}
-    {!isOpen && (
+    {!isMessageSelect && (
       <p className="message--preview">{message.text}</p>
     )}
   </div>

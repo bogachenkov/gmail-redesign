@@ -3,14 +3,23 @@ import {connect} from 'react-redux';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import {
-  selectConversation
+  loadConversation,
+  selectConversation,
+  unselectConversation
 } from '../../store/actions';
 
 import ConversationsItem from './ConversationsItem';
 
 class ConversationsList extends Component {
   render() {
-    const {users, conversations, selectConversation, openedConversation} = this.props;
+    const {
+      conversations,
+      openConversation,
+      selectConversation,
+      unselectConversation,
+      openedConversation,
+      selectedConversations
+    } = this.props;
     return (
       <Scrollbars
         renderTrackVertical={props => <div {...props} style={{display: 'none'}} className="track-horizontal"/>}
@@ -19,9 +28,11 @@ class ConversationsList extends Component {
         {
           conversations.map((conversation) => (
             <ConversationsItem
-              selected={openedConversation && openedConversation.id === conversation.id}
-              user={users.find(el => el.id === conversation.userId)}
-              onSelect={() => selectConversation(conversation)}
+              isActive={openedConversation && openedConversation.id === conversation.id}
+              isSelected={selectedConversations.includes(conversation.id)}
+              openConversation={() => openConversation(conversation)}
+              selectConversation={() => selectConversation(conversation.id)}
+              unselectConversation={() => unselectConversation(conversation.id)}
               conversation={conversation}
               key={conversation.id} />
           ))
@@ -33,11 +44,13 @@ class ConversationsList extends Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.users.users,
   conversations: state.conversations.conversations,
-  openedConversation: state.conversations.openedConversation
+  openedConversation: state.conversations.openedConversation,
+  selectedConversations: state.conversations.selectedConversations
 });
 const mapDispatchToProps = dispatch => ({
-  selectConversation: conversation => dispatch(selectConversation(conversation))
+  openConversation: conversation => dispatch(loadConversation(conversation)),
+  selectConversation: convId => dispatch(selectConversation(convId)),
+  unselectConversation: convId => dispatch(unselectConversation(convId)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(ConversationsList);

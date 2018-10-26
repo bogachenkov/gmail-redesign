@@ -3,24 +3,38 @@ import PropTypes from 'prop-types';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 import ConversationActions from './ConversationActions';
+import SimpleAvatar from './SimpleAvatar';
+import SelectedAvatar from './SelectedAvatar';
 
 class ConversationsItem extends Component {
 
+  openConversationHandler = e => {
+    const {openConversation, isActive} = this.props;
+    if (!isActive) openConversation();
+  }
+
   render() {
-    const {conversation, user, onSelect, selected} = this.props;
+    const {
+      conversation,
+      isActive,
+      isSelected,
+      selectConversation,
+      unselectConversation
+    } = this.props;
+    const {user} = conversation;
 
     let className = "conversations--item";
     if (!conversation.isReaded) className += " new";
-    if (selected) className += " selected";
+    if (isActive) className += " active";
+    if (isSelected) className += " selected";
 
     return (
-      <div className={className} onClick={onSelect}>
-        <div
-          className={user.avatar ? "conversations--avatar" : `conversations--avatar no-avatar ${user.color}`}
-          style={{backgroundImage: `url("${user.avatar}")`}}>
-            {user.avatar ? "" : user.name[0]}
-        </div>
-        <div className="conversations--data">
+      <div className={className}>
+        {isSelected ?
+          <SelectedAvatar onClick={unselectConversation} />
+          :
+          <SimpleAvatar user={user} onClick={selectConversation} />}
+        <div className="conversations--data" onClick={this.openConversationHandler}>
           <p className="conversations--name">
             {user.name}
           </p>
@@ -32,7 +46,7 @@ class ConversationsItem extends Component {
           <span>10:27 AM</span>
         </div>
         {
-          !selected && <ConversationActions />
+          !isActive && <ConversationActions />
         }
         <div className="conversations--starred">
           <TwoToneIcon hoverable title="Не помечено" icon="star" size={16} />
@@ -44,7 +58,6 @@ class ConversationsItem extends Component {
 
 ConversationsItem.propTypes = {
   conversation: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
 }
 
 export default ConversationsItem;

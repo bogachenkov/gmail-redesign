@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
+import {connect} from 'react-redux';
 
 import './dialog.css';
 
 import DialogBar from './DialogBar';
 import Message from '../Message/Message';
 import Reply from '../Reply/Reply';
+import Label from '../Label/Label';
+
+import {addReply} from '../../store/actions';
 
 class Dialog extends Component {
 
   state = {
     selectedMsg: null,
-    replyIsOpen: true
+    replyIsOpen: false
   }
 
   componentDidMount() {
-    const selectedMsg = this.props.conversation.messages.slice(-1)[0].id;
+    const {conversation} = this.props;
+    const selectedMsg = conversation.messages.slice(-1)[0].id;
     this.setState({
       selectedMsg
+    }, () => {
+      this.scroll.scrollToBottom();
     });
   }
 
@@ -27,11 +34,20 @@ class Dialog extends Component {
     });
   }
 
-  openReply = e => {
+  toggleReply = e => {
     this.setState({
-      replyIsOpen: true
+      replyIsOpen: !this.state.replyIsOpen
     }, () => {
       this.scroll.scrollToBottom()
+    });
+  }
+
+  addReply = reply => {
+    const {conversation} = this.props;
+    this.props.addReply(reply, conversation.id);
+    this.setState({
+      replyIsOpen: false,
+      selectedMsg: reply.id
     });
   }
 
@@ -42,6 +58,11 @@ class Dialog extends Component {
       <section className="dialog">
         <header className="dialog--header">
           <h3 className="dialog--title">{conversation.title}</h3>
+          <div className="dialog--labels">
+            {
+              conversation.folders.map(folder => <Label key={folder.type} folder={folder} />)
+            }
+          </div>
           <DialogBar />
         </header>
           <Scrollbars
@@ -54,16 +75,15 @@ class Dialog extends Component {
             {
               conversation.messages.map((message, i, arr) =>
                 <Message
-                  openReply={this.openReply}
+                  toggleReply={this.toggleReply}
                   replyIsOpen={replyIsOpen}
-                  destUserId={conversation.userId}
-                  onSelectMsg={() => this.selectMessage(message.id)}
                   message={message}
-                  isOpen={message.id === selectedMsg}
+                  onSelectMsg={() => this.selectMessage(message.id)}
+                  isMessageSelect={message.id === selectedMsg}
                   key={message.id} />
               )
             }
-            {replyIsOpen && <Reply />}
+            {replyIsOpen && <Reply addReply={this.addReply} to={conversation.user} toggleReply={this.toggleReply} />}
             </div>
           </Scrollbars>
       </section>
@@ -71,4 +91,8 @@ class Dialog extends Component {
   }
 }
 
-export default Dialog;
+const mapDispatchToProps = dispatch => ({
+  addReply: (reply, conversationID) => dispatch(addReply(reply, conversationID))
+});
+
+export default connect(null, mapDispatchToProps)(Dialog);

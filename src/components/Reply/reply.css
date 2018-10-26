@@ -86,6 +86,8 @@
 }
 .reply--draft-actions {
   margin-left: auto;
+  display: flex;
+  margin-top: 4px;
 }
 .reply--draft-actions .twotone-icon {
   margin-left: 22px;

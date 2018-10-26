@@ -16,6 +16,10 @@
   margin: 0;
 }
 
+.dialog--labels {
+  margin-left: 25px;
+}
+
 .dialog--body {
   padding: 20px;
 }

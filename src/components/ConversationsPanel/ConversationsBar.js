@@ -4,33 +4,31 @@ import './conversations.css';
 import ConversationActions from './ConversationActions';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
+import {
+  selectAll,
+  unselectAll
+} from '../../store/actions'
+
 class ConversationsBar extends Component {
-
-  state = {
-    checkAll: false
-  }
-
-  checkAllHandler = () => {
-    this.setState({
-      checkAll: !this.state.checkAll
-    });
-  }
 
   isEmpty = (obj) => {
     return !obj || Object.keys(obj).length === 0;
   }
 
   render() {
-    const {openedConversation} = this.props;
-    console.log(openedConversation);
-    const {checkAll} = this.state;
+    const {openedConversation, selectedConversations, selectAll, unselectAll} = this.props;
     return (
       <div className="conversations--bar">
         <div className="conversations--checkAll" onClick={this.checkAllHandler}>
           {
-            checkAll ?
-            <TwoToneIcon title="Отменить выбор" hoverable size={16} icon="check_box" /> :
-            <TwoToneIcon title="Выбрать" hoverable size={16} icon="check_box_outline_blank"/>
+            !selectedConversations.length ?
+            <span onClick={selectAll}>
+              <TwoToneIcon title="Выбрать" hoverable size={16} icon="check_box_outline_blank"/>
+            </span>
+            :
+            <span onClick={unselectAll}>
+              <TwoToneIcon title="Отменить выбор" hoverable size={16} icon="check_box" />
+            </span>
           }
         </div>
         <div className="conversations--bar-actions">
@@ -43,7 +41,11 @@ class ConversationsBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  openedConversation: state.conversations.openedConversation
+  openedConversation: state.conversations.openedConversation,
+  selectedConversations: state.conversations.selectedConversations
 });
-
-export default connect(mapStateToProps)(ConversationsBar);
+const mapDispatchToProps = dispatch => ({
+  selectAll: () => dispatch(selectAll()),
+  unselectAll: () => dispatch(unselectAll())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ConversationsBar);
