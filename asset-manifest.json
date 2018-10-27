@@ -1,7 +1,7 @@
 {
   "main.css": "/gmail-redesign/static/css/main.9f588347.chunk.css",
-  "main.js": "/gmail-redesign/static/js/main.81cc65b3.chunk.js",
-  "main.js.map": "/gmail-redesign/static/js/main.81cc65b3.chunk.js.map",
+  "main.js": "/gmail-redesign/static/js/main.5874cee0.chunk.js",
+  "main.js.map": "/gmail-redesign/static/js/main.5874cee0.chunk.js.map",
   "static/js/1.c2434d76.chunk.js": "/gmail-redesign/static/js/1.c2434d76.chunk.js",
   "static/js/1.c2434d76.chunk.js.map": "/gmail-redesign/static/js/1.c2434d76.chunk.js.map",
   "runtime~main.js": "/gmail-redesign/static/js/runtime~main.e5d4b42d.js",
@@ -9,6 +9,6 @@
   "static/media/gmail.png": "/gmail-redesign/static/media/gmail.6323ea4d.png",
   "static/css/main.9f588347.chunk.css.map": "/gmail-redesign/static/css/main.9f588347.chunk.css.map",
   "index.html": "/gmail-redesign/index.html",
-  "precache-manifest.89115b4f470c48efba6fff3281acfc74.js": "/gmail-redesign/precache-manifest.89115b4f470c48efba6fff3281acfc74.js",
+  "precache-manifest.cb7d44b81321e682baf0a635e01b87a3.js": "/gmail-redesign/precache-manifest.cb7d44b81321e682baf0a635e01b87a3.js",
   "service-worker.js": "/gmail-redesign/service-worker.js"
 }
