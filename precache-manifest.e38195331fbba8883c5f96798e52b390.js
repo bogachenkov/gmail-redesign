@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/gmail-redesign/static/js/runtime~main.e5d4b42d.js"
   },
   {
-    "revision": "443f8b5a0b3dabb9f6b6",
-    "url": "/gmail-redesign/static/js/main.443f8b5a.chunk.js"
+    "revision": "b77d61918b00d80ac8e7",
+    "url": "/gmail-redesign/static/js/main.b77d6191.chunk.js"
   },
   {
     "revision": "e272e3d61189640088c1",
     "url": "/gmail-redesign/static/js/1.e272e3d6.chunk.js"
   },
   {
-    "revision": "443f8b5a0b3dabb9f6b6",
+    "revision": "b77d61918b00d80ac8e7",
     "url": "/gmail-redesign/static/css/main.9f588347.chunk.css"
   },
   {
-    "revision": "d507f2ea4770100a0026db817a5d36d1",
+    "revision": "27544ddf9c60dc5d4464929fabd5dc21",
     "url": "/gmail-redesign/index.html"
   }
 ];

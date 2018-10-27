@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/gmail-redesign/precache-manifest.a3edea44eb755eb72349d710fd6fe350.js"
+  "/gmail-redesign/precache-manifest.e38195331fbba8883c5f96798e52b390.js"
 );
 
 workbox.clientsClaim();
