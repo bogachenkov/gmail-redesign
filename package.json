@@ -2,9 +2,8 @@
   "name": "gmail",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bogachenkov.github.io/gmail/",
+  "homepage": "https://bogachenkov.github.io/gmail-redesign",
   "dependencies": {
-    "lorem-ipsum": "^2.0.0-alpha.2",
     "react": "^16.5.2",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.5.2",
