@@ -2,6 +2,7 @@
   "name": "gmail",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bogachenkov.github.io/gmail/",
   "dependencies": {
     "lorem-ipsum": "^2.0.0-alpha.2",
     "react": "^16.5.2",
@@ -19,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
