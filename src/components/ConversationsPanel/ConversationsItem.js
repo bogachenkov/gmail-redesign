@@ -9,7 +9,8 @@ import SelectedAvatar from './SelectedAvatar';
 class ConversationsItem extends Component {
 
   openConversationHandler = e => {
-    const {openConversation, isActive} = this.props;
+    const {openConversation, isActive, selectMode} = this.props;
+    if (selectMode) return;
     if (!isActive) openConversation();
   }
 
@@ -19,9 +20,10 @@ class ConversationsItem extends Component {
       isActive,
       isSelected,
       selectConversation,
-      unselectConversation
+      unselectConversation,
+      deleteConversation
     } = this.props;
-    const {user} = conversation;
+    const {user, messages} = conversation;
 
     let className = "conversations--item";
     if (!conversation.isReaded) className += " new";
@@ -39,14 +41,19 @@ class ConversationsItem extends Component {
             {user.name}
           </p>
           <p className="conversations--last-message">
-            {conversation.messages.slice(-1)[0].text}
+            {
+              messages.length > 0 ?
+              messages.slice(-1)[0].text
+              :
+              'История пуста'
+            }
           </p>
         </div>
         <div className="conversations--datetime">
           <span>10:27 AM</span>
         </div>
         {
-          !isActive && <ConversationActions />
+          !isActive && <ConversationActions deleteFn={deleteConversation} />
         }
         <div className="conversations--starred">
           <TwoToneIcon hoverable title="Не помечено" icon="star" size={16} />
@@ -57,7 +64,15 @@ class ConversationsItem extends Component {
 }
 
 ConversationsItem.propTypes = {
-  conversation: PropTypes.object.isRequired,
+  conversation: PropTypes.shape({
+    user: PropTypes.object.isRequired,
+    messages: PropTypes.array.isRequired
+  }),
+  isActive: PropTypes.bool.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  selectConversation: PropTypes.func.isRequired,
+  unselectConversation: PropTypes.func.isRequired,
+  deleteConversation: PropTypes.func.isRequired
 }
 
 export default ConversationsItem;

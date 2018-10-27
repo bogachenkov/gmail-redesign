@@ -5,7 +5,10 @@ import {
   SELECT_ALL,
   UNSELECT_ALL,
   SELECT_CONV,
-  UNSELECT_CONV
+  UNSELECT_CONV,
+  DELETE_SELECTED_CONV,
+  DELETE_CONV,
+  DELETE_MESSAGE
 } from './types';
 
 export const loadConversation = conversation => dispatch => {
@@ -37,15 +40,33 @@ export const selectAll = () => ({
 export const unselectAll = () => ({
   type: UNSELECT_ALL
 });
-export const selectConversation = convId => ({
+export const selectConversation = conv_id => ({
   type: SELECT_CONV,
   payload: {
-    convId
+    conv_id
   }
 });
-export const unselectConversation = convId => ({
+export const unselectConversation = conv_id => ({
   type: UNSELECT_CONV,
   payload: {
-    convId
+    conv_id
   }
 });
+
+export const deleteSelectedConversations = () => ({
+  type: DELETE_SELECTED_CONV
+});
+export const deleteConversation = (conv_id) => ({
+  type: DELETE_CONV,
+  payload: {
+    conv_id
+  }
+});
+
+export const deleteMessage = (conv_id, message_id) => ({
+  type: DELETE_MESSAGE,
+  payload: {
+    conv_id,
+    message_id
+  }
+})

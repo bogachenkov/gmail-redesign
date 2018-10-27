@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 const MessageBody = ({message, onSelectMsg, isMessageSelect}) => (
-  <div className="message--body" onClick={onSelectMsg}>
+  <div
+    className={`message--body ${isMessageSelect ? 'selected' : ''}`}
+    onClick={onSelectMsg}>
     <p className="message--username">{message.from.name}</p>
     {isMessageSelect && (
       <React.Fragment>
@@ -21,5 +24,15 @@ const MessageBody = ({message, onSelectMsg, isMessageSelect}) => (
     )}
   </div>
 );
+
+MessageBody.propTypes = {
+  message: PropTypes.shape({
+    from: PropTypes.object.isRequired,
+    to: PropTypes.object.isRequired,
+    text: PropTypes.string.isRequired
+  }),
+  onSelectMsg: PropTypes.func.isRequired,
+  isMessageSelect: PropTypes.bool.isRequired
+}
 
 export default MessageBody;

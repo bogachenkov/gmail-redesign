@@ -4,6 +4,7 @@
   border-bottom: 1px solid #e4e8eb;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .header--bar {

@@ -1,0 +1,28 @@
+.notification {
+  position: fixed;
+  z-index: 100;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 5px;
+  background-color: #212223;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.14);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 15px 25px;
+  animation: appear .5s;
+}
+
+
+@keyframes appear{
+    from {
+      left: -300px;
+      bottom: -300px;
+      opacity: .1;
+    }
+    to{
+      left: 20px;
+      bottom: 20px;
+      opacity: 1;
+    }
+}

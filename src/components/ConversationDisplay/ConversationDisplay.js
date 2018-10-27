@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import './conversation.css';
 
@@ -35,6 +36,13 @@ class ConversationDisplay extends Component {
       </div>
     );
   }
+}
+
+ConversationDisplay.propTypes = {
+  conversation: PropTypes.object,
+  selectedConversations: PropTypes.array.isRequired,
+  unselectAll: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({

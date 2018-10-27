@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
-const SidebarItem = ({href, label, icon}) => (
+const SidebarItem = ({href, label, icon, unreadedCounter}) => (
   <NavLink
     title={label}
     className="sidebar--item"
@@ -11,7 +11,7 @@ const SidebarItem = ({href, label, icon}) => (
     to={`/${href}`}>
     <TwoToneIcon icon={icon} size={18} />
     {label}
-    {href === 'inbox' && <span className="sidebar--unreaded-counter">3</span>}
+    {href === 'inbox' && unreadedCounter > 0 && <span className="sidebar--unreaded-counter">{unreadedCounter}</span>}
   </NavLink>
 );
 

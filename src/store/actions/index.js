@@ -4,5 +4,12 @@ export {
   selectAll,
   unselectAll,
   selectConversation,
-  unselectConversation
+  unselectConversation,
+  deleteConversation,
+  deleteSelectedConversations,
+  deleteMessage
 } from './conversations';
+
+export {
+  showNotification
+} from './notification'

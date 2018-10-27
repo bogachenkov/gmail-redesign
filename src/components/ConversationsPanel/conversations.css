@@ -14,6 +14,7 @@
 
 .conversations--bar .conversations--actions {
   display: flex;
+  margin-top: 7px;
 }
 .conversations--bar .conversations--actions .twotone-icon {
   margin-left: 18px;
@@ -23,6 +24,13 @@
 }
 .conversations--more {
   margin-left: 18px;
+}
+
+.conversations--not-found {
+  color: #909191;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 3em;
 }
 
 .conversations--item {
@@ -179,4 +187,15 @@
   position: absolute;
   bottom: 12px;
   right: 16px;
+}
+
+.conversations--animation-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.conversations--animation-leave.conversations--animation-leave-active {
+  opacity: 0.01;
+  transform: translateX(-360px);
+  transition: all 300ms ease-in;
 }

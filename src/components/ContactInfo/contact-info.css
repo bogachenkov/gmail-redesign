@@ -1,15 +1,18 @@
 .contact-info {
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 1px 18px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.14);
   border-radius: 5px;
   background-color: #ffffff;
   width: 350px;
   position: absolute;
-  top: -1px;
-  left: -1px;
+  top: 0;
+  left: 0;
   z-index: 50;
-  display: none;
+  display: block;
   text-transform: none;
   font-weight: normal;
+  transition: all .4s ease-in-out;
+  max-width: 0;
+  max-height: 0;
+  overflow: hidden;
 }
 
 .contact-info--header {

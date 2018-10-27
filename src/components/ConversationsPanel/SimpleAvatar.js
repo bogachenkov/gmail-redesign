@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SimpleAvatar = ({user, onClick}) => (
   <div
@@ -8,5 +9,14 @@ const SimpleAvatar = ({user, onClick}) => (
       {user.avatar ? "" : user.name[0]}
   </div>
 );
+
+SimpleAvatar.propTypes = {
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    color: PropTypes.string,
+    name: PropTypes.string.isRequired
+  }),
+  onClick: PropTypes.func.isRequired
+}
 
 export default SimpleAvatar;

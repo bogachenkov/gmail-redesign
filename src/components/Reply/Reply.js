@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
@@ -80,6 +81,14 @@ class Reply extends Component {
       </article>
     );
   }
+}
+
+Reply.propTypes = {
+  to: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }),
+  toggleReply: PropTypes.func.isRequired,
+  addReply: PropTypes.func.isRequired,
 }
 
 export default Reply;

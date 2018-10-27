@@ -1,34 +1,36 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 import './contact-info.css';
 
 class ContactInfo extends Component {
   render() {
     const {user} = this.props;
+    const {avatar, color, name, email, phone, company, location} = user;
     return (
       <article className="contact-info">
         <header className="contact-info--header">
           <div
-            className={user.avatar ? "contact-info--avatar" : `contact-info--avatar no-avatar ${user.color}`}
-            style={{backgroundImage: `url("${user.avatar}")`}}>
-            {user.avatar ? "" : user.name[0]}
+            className={avatar ? "contact-info--avatar" : `contact-info--avatar no-avatar ${color}`}
+            style={{backgroundImage: `url("${avatar}")`}}>
+            {avatar ? "" : name[0]}
           </div>
           <div className="contact-info--user">
             <h3 className="contact-info--name">
-              {user.name}
+              {name}
             </h3>
-            <p className="contact-info--email">{user.email}</p>
-            <p className="contact-info--phone">{user.phone}</p>
+            <p className="contact-info--email">{email}</p>
+            <p className="contact-info--phone">{phone}</p>
           </div>
         </header>
         <div className="contact-info--body">
           <p className="contact-info--information">
             <TwoToneIcon size={14} icon="work" />
-            {user.company}
+            {company}
           </p>
           <p className="contact-info--information">
             <TwoToneIcon size={14} icon="location_on" />
-            {user.location}
+            {location}
           </p>
           <p className="contact-info--information">
             <TwoToneIcon size={14} icon="link" />
@@ -49,6 +51,18 @@ class ContactInfo extends Component {
       </article>
     );
   }
+}
+
+ContactInfo.propTypes = {
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    color: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired
+  })
 }
 
 export default ContactInfo;

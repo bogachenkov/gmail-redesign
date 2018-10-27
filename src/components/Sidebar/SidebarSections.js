@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import SidebarItem from './SidebarItem';
 
@@ -45,11 +46,14 @@ class SidebarSections extends Component {
   }
 
   render() {
+    const {conversations} = this.props;
+    const unreadedCounter = conversations.reduce((total, conv) => conv.isReaded === false ? total + 1 : total, 0);
     return (
       <div className="sidebar--sections">
         {
           this.state.items.map(({label, icon, href}) => (
             <SidebarItem
+              unreadedCounter={unreadedCounter}
               key={href}
               label={label}
               icon={icon}
@@ -62,4 +66,8 @@ class SidebarSections extends Component {
   }
 }
 
-export default SidebarSections;
+const mapStateToProps = state => ({
+  conversations: state.conversations.conversations
+});
+
+export default connect(mapStateToProps)(SidebarSections);

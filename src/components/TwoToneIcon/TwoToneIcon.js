@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './twotone-icon.css';
 
 class TwoToneIcon extends Component {
@@ -63,6 +64,12 @@ class TwoToneIcon extends Component {
       </span>
     );
   }
+}
+
+TwoToneIcon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  hoverable: PropTypes.bool,
+  size: PropTypes.number
 }
 
 export default TwoToneIcon;

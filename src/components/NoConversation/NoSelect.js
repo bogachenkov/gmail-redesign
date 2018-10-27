@@ -12,10 +12,10 @@ const NoSelect = () => (
     <p className="no-conversation--message">
       В настоящее время вы используете 1,7 ГБ из 17 ГБ
     </p>
-    <a className="no-conversation--link">Управление</a>
+    <span className="no-conversation--link">Управление</span>
     <div className="no-conversation--last-visit">
       <p>Последняя активность: 5 минут назад</p>
-      <a className="no-conversation--link">Подробнее</a>
+      <span className="no-conversation--link">Подробнее</span>
     </div>
   </div>
 );

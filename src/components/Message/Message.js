@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './message.css';
 
@@ -9,7 +10,14 @@ import MessageFooter from './MessageFooter';
 
 class Message extends Component {
   render() {
-    const {message, isMessageSelect, onSelectMsg, toggleReply, replyIsOpen} = this.props;
+    const {
+      message,
+      isMessageSelect,
+      onSelectMsg,
+      toggleReply,
+      replyIsOpen,
+      deleteMessage
+    } = this.props;
     const {from} = message;
 
     return (
@@ -21,6 +29,7 @@ class Message extends Component {
             message={message}
             isMessageSelect={isMessageSelect} />
           <MessageBar
+            deleteMessage={deleteMessage}
             date={`${message.date}, ${message.time}`}
             isMessageSelect={isMessageSelect} />
         </div>
@@ -31,6 +40,15 @@ class Message extends Component {
       </article>
     );
   }
+}
+
+Message.propTypes = {
+  message: PropTypes.object.isRequired,
+  isMessageSelect: PropTypes.bool.isRequired,
+  onSelectMsg: PropTypes.func.isRequired,
+  toggleReply: PropTypes.func.isRequired,
+  replyIsOpen: PropTypes.bool.isRequired,
+  deleteMessage: PropTypes.func.isRequired
 }
 
 export default Message;

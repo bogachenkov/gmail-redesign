@@ -20,7 +20,7 @@
 
 .search > input {
   box-sizing: border-box;
-  width: 500px;
+  width: 250px;
   background-color: #f7f8f9;
   border: 1px solid transparent;
   border-radius: 3px;
@@ -30,6 +30,12 @@
   font-weight: 400;
   outline: none;
   color: #000;
+}
+
+@media screen and (min-width: 940px) {
+  .search > input {
+    width: 500px;
+  }
 }
 
 .search > input:focus {

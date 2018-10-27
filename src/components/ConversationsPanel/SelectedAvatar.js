@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TwoToneIcon from '../TwoToneIcon/TwoToneIcon';
 
 const SelectedAvatar = ({onClick}) => (
@@ -6,5 +7,9 @@ const SelectedAvatar = ({onClick}) => (
     <TwoToneIcon icon="check" size={20} />
   </div>
 );
+
+SelectedAvatar.propTypes = {
+  onClick: PropTypes.func.isRequired
+}
 
 export default SelectedAvatar;

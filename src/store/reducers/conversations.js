@@ -6,7 +6,10 @@ import {
   SELECT_ALL,
   UNSELECT_ALL,
   SELECT_CONV,
-  UNSELECT_CONV
+  UNSELECT_CONV,
+  DELETE_CONV,
+  DELETE_SELECTED_CONV,
+  DELETE_MESSAGE
 } from '../actions/types';
 
 const initalState = {
@@ -31,6 +34,13 @@ const selectConv = (arr, id) => {
 }
 const unselectConv = (arr, id) => {
   return [...arr].filter(el => el !== id)
+}
+const deleteMessage = (arr, conv_id, message_id) => {
+  const conversations = [...arr].map(cnv => {
+    if (cnv.id === conv_id) cnv.messages = cnv.messages.filter(msg => msg.id !== message_id);
+    return cnv;
+  });
+  return conversations;
 }
 
 export default function(state = initalState, action) {
@@ -66,13 +76,30 @@ export default function(state = initalState, action) {
     case SELECT_CONV:
       return {
         ...state,
-        selectedConversations: selectConv(state.selectedConversations, action.payload.convId),
+        selectedConversations: selectConv(state.selectedConversations, action.payload.conv_id),
         openedConversation: null
       }
     case UNSELECT_CONV:
       return {
         ...state,
-        selectedConversations: unselectConv(state.selectedConversations, action.payload.convId),
+        selectedConversations: unselectConv(state.selectedConversations, action.payload.conv_id),
+      }
+    case DELETE_SELECTED_CONV:
+      return {
+        ...state,
+        selectedConversations: [],
+        conversations: [...state.conversations].filter(conv => !state.selectedConversations.includes(conv.id))
+      }
+    case DELETE_CONV:
+      return {
+        ...state,
+        conversations: [...state.conversations].filter(conv => conv.id !== action.payload.conv_id),
+        openedConversation: state.openedConversation && state.openedConversation.id === action.payload.conv_id ? null : state.openedConversation
+      }
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        conversations: deleteMessage(state.conversations, action.payload.conv_id, action.payload.message_id)
       }
     default:
       return state;

@@ -1,0 +1,36 @@
+.loader {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader--logo {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.loader--message {
+  color: #909191;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: .1px;
+  opacity: .8;
+  font-weight: 400;
+  text-align: center;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .1;
+  }
+}

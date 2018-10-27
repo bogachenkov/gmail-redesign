@@ -12,6 +12,12 @@
   padding: 20px 16px;
 }
 
+.message--additional {
+  display: flex;
+  align-items: center;
+  padding-top: 4px;
+}
+
 .message--avatar {
   flex: 0 0 40px;
   height: 40px;
@@ -22,7 +28,9 @@
   margin-right: 11px;
 }
 .message--avatar:hover .contact-info {
-  display: block;
+  max-width: 700px;
+  max-height: 480px;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 1px 18px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.14);
 }
 
 .message--avatar.no-avatar {
@@ -54,6 +62,9 @@
   overflow-x: hidden;
   cursor: pointer;
   flex: 1 0;
+}
+.message--body.selected {
+  cursor: auto;
 }
 
 .message--username {
